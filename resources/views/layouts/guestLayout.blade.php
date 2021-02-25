@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <title>@yield('title')</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+    </style>
+    <script src="{{asset('js/app.js')}}"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+
+</head>
+<body>
+    @include('guest.inc.header')
+
+    @yield('content')
+
+    @include('guest.inc.footer')
+</body>
+</html>
