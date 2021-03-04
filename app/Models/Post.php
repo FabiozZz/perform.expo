@@ -12,9 +12,10 @@ class Post extends Model
     protected $fillable = [
         'title',
         'content',
+        'slug',
         'except',
         'is_published',
-        'image'
+        'preview',
     ];
 
     public function image()

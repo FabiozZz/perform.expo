@@ -45,20 +45,16 @@
         </div>
         <div class="row mt-5 mb-5" style="font-size: 0.7em;">
             @foreach ($data as $project)
-                <div class="col-sm-12 col-md-6 col-lg-4" style="height: 30%;">
-                    <div class="card text-left">
-                        @isset($project->preview)
-                            <div class="img-fluid" style="width: 100%;height: 200px;background-image: url('{{ asset("storage/images_project/{$project->preview}") }}'); background-size: contain;background-repeat: no-repeat; background-position: center"></div>
-{{--                            <img class="card-img-top" src="" alt="">--}}
-                        @endisset
-                        <div class="card-body">
-                            <h4 class="card-title font-weight-bold">{{ $project->title }}</h4>
-                            <p class="card-text">{{ $project->except }}</p>
-                            <span class="small">Общая стоимость: {{ $project->price }}</span>
-                            <span class="small">Общая площадь: {{ $project->square }}</span>
+                <div class="col-sm-12 col-md-6 col-lg-4 mt-5" style="height: 30%; font-weight: bolder; color: black">
+                    <div class="card text-left" style="background-color: transparent; border: none">
+                            <div class="img-fluid" style="width: 100%;height: 250px;background-image: url('{{is_file(public_path("storage/images_project/" .$project->id.'/'.$project->preview))? asset("storage/images_project/" . $project->id ."/".$project->preview) : asset("storage/images_project/".$project->preview)}}'); background-size: cover;background-repeat: no-repeat; background-position: center"></div>
+                        <div class="card-body float-left p-0 mt-4">
+                            <h3 class="card-title font-weight-bolder">{{ $project->title }}</h3>
+                            <span class="d-block small">Общая стоимость: {{ $project->price }}</span>
+                            <span class="d-block small">Общая площадь: {{ $project->square }}</span>
+                        <a class="btn text-white p-2 mt-3" style="background-color: black"
+                            href="{{ route('home.one', [$project->category->slug, $project->slug]) }}">Смотреть</a>
                         </div>
-                        <a class="btn btn-dark w-50"
-                            href="{{ route('home.one', [$project->category->slug, $project->slug]) }}">Подробнее</a>
                     </div>
                 </div>
             @endforeach

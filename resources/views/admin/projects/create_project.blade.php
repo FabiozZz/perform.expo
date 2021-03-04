@@ -69,6 +69,7 @@
                 </label>
             </div>
         </div>
+
         <!-- Button trigger modal -->
 
         <button type="button" id="modal-open" class="btn d-none btn-primary btn-lg" data-toggle="modal" data-target="#modelId">
@@ -77,10 +78,16 @@
 
         <!-- Modal -->
         <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-
-                    <div class=" m-auto" id="modal-content"></div>
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content modal-lg">
+                    <div class="form-group">
+                        <h5>Выберете картинку для превью</h5>
+                        <div class="m-auto d-flex flex-row" style="overflow-x: auto;width: 100%;"  id="preview"></div>
+                    </div>
+                    <div class="form-group group-carousel">
+                        <h5>Выберете картинки для карусели</h5>
+                        <div class="m-auto d-flex flex-row" style="overflow-x: auto;width: 100%;"  id="carousel"></div>
+                    </div>
                     <div class="modal-footer">
                         <button type="button" id="modal-close" onclick="$('#image').val('')" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button"  class="btn btn-primary" data-dismiss="modal">Save</button>
@@ -98,7 +105,8 @@
                     .input-image > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
                         border:2px solid #ffe924;
                     }
-                </style>      </div>
+                </style>
+            </div>
         </div>
         <input class="form-control" type="submit" value="Отправить">
 
@@ -107,7 +115,7 @@
     <script>
         function readImage(file,id) {
             // Check if the file is an image.
-            let img = document.querySelector(`img#${id}`);
+            let img = document.querySelector(`#${id}`);
             const reader = new FileReader();
             reader.addEventListener('load', (event) => {
                 img.src = event.target.result;
@@ -117,19 +125,44 @@
 
         $('#image').on('change', function (e) {
             const fileList = e.target.files;
-            let id = 'image';
+            let idPreview = 'preview';
+            let idCarousel = 'carousel';
             let i = 0;
+            let preview,carousel,reader = new FileReader();
+            reader.onload = function () {
+
+            };
             for (const file of fileList) {
-                $('#modal-content').append(`<label id="input-image" class="input-image col-2 d-block" for="${id+i}">` +
-                    `<input type='radio' class="" value="${file.name}" name="preview" id="${id+i}">` +
-                    `<img id="${id+i}" src="" width="100" height="100">` +
+                $('.form-group #preview').append(`<label class="input-image d-inline-block" for="${idPreview+i+'image'}">` +
+                    `<input type='radio' class="" value="${file.name}" name="preview" id="${idPreview+i+'image'}">` +
+                    `<img id="${idPreview+(i+1)}" src="" width="100" height="100">` +
                     '</label>');
-                let idImage = id + i;
-                readImage(file,idImage)
+                $('.group-carousel #carousel').append(`<label  class="input-image d-inline-block" for="${idCarousel+i+'image'}">` +
+                    `<input type='checkbox'  value="${file.name}" name="carousel-image[]" id="${idCarousel+i+'image'}">` +
+                    `<img id="${idCarousel + (i+1)}" src="" width="100" height="100">` +
+                    '</label>');
+                preview = idPreview + (i+1);
+                carousel = idCarousel + (i+1);
+                readImage(file, preview);
+                readImage(file, carousel);
                 i++;
             }
             $('#modal-open').trigger('click');
+            $(".group-carousel input").on("click", function() {
+
+                if($(".group-carousel input:checked").length >= 2) { // Не больше 2-х checkbox
+
+                    $(".group-carousel input:not(:checked)").attr("disabled", true);
+
+                } else {
+
+                    $(".group-carousel input:disabled").attr("disabled", false);
+
+                }
+
+            });
         });
+
     </script>
 
 @endsection

@@ -12,19 +12,19 @@
             <div class="col-md-6 col-sm-12">
                 <div class="col-sm-12">
                     <label class="w-100 col-form-label-sm" for="title">Введите заголовок проекта
-                        <input class="form-control" type="text" name="title" id="title" value="{{$project->title ?? ''}}" placeholder="Вводить здесь ...">
+                        <input class="form-control" type="text" name="title" id="title" value="{{old('title',$project->title)}}" placeholder="Вводить здесь ...">
                     </label>
                 </div>
                 <div class="col-sm-12">
                     <label class="w-100 col-form-label-sm" for="square">Введите площадь проекта
-                        <input class="form-control" type="number" name="square" id="square" value="{{$project->square ?? ''}}" placeholder="Вводить здесь ...">
+                        <input class="form-control" type="number" name="square" id="square" value="{{old('square',$project->square)}}" placeholder="Вводить здесь ...">
                     </label>
                 </div>
             </div>
             <div class="col-md-6 col-sm-12">
                 <div class="col-sm-12">
                     <label class="w-100 col-form-label" for="price">Стоимость проекта
-                        <input class="form-control" type="number" name="price" id="price" value="{{$project->price ?? ''}}" placeholder="Вводить здесь ...">
+                        <input class="form-control" type="number" name="price" id="price" value="{{old('price',$project->price)}}" placeholder="Вводить здесь ...">
                     </label>
                 </div>
                 <div class="col-sm-12">
@@ -47,10 +47,10 @@
         <div class="form-group col-xl-6 col-sm-12">
             <label class="col-form-label-sm" for="except">Введите краткое описание проекта
             </label>
-            <textarea placeholder="Вводить здесь ..." class="form-control" name="except" id="except" rows="3">{{$project->except}}</textarea>
+            <textarea placeholder="Вводить здесь ..." class="form-control" name="except" id="except" rows="3">{{old('except',$project->except)}}</textarea>
 
             <label class="col-form-label-sm" for="content">Описание проекта</label>
-            <textarea placeholder="Вводить здесь ..." class="form-control" name="content" id="summernote" rows="3">{{$project->content}}</textarea>
+            <textarea placeholder="Вводить здесь ..." class="form-control" name="content" id="summernote" rows="3">{{old('content',$project->content)}}</textarea>
         </div>
         <div class="row col-12">
             <div class="form-group text-center col-md-6 col-sm-12">

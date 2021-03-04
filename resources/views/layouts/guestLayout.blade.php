@@ -12,6 +12,10 @@
             margin: 0;
             box-sizing: border-box;
         }
+        body{
+            background-color: #ffffff;
+            font-family: Arial, Roboto, 'Times New Roman',serif;
+        }
     </style>
     <script src="{{asset('js/app.js')}}"></script>
     <!-- Bootstrap CSS -->

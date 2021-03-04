@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PostStoreRequest;
 use App\Models\Image;
 use App\Models\Post;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -33,34 +34,27 @@ class PostController extends Controller
         return view('admin.posts.create_post');
     }
 
-    public function store(PostStoreRequest $request): \Illuminate\Http\RedirectResponse
+
+    public function store(PostStoreRequest $request)
     {
-        dd($request);
-        $data =$request->except('image');
-//        $data['carousel'] = $request->input('carousel', '0');
-//        $data['is_published'] = $request->input('is_published', '0');
-//        $project = new Project($data);
-//
-//        if ($request->hasFile('image')) {
-//
-//            $answer = $request->file('image');
-//            $count = count($answer);
-//            $project->save();
-//
-//            if ($this->validateImage($answer)) {
-//                foreach ($answer as $image) {
-//                    $nameImage = $image->getClientOriginalName();
-//                    $image->move('storage/images_project/',$nameImage);
-//                    Image::create([
-//                        'project_id' => $project->id,
-//                        'name' => $nameImage,
-//                    ]);
-//                }
-//                return redirect()->route('admin.project.one',$project->id)->with(['success'=>'Проект успешно добавлен']);
-//            }
-//            return redirect()->back()->withInput()->withErrors('Формат изображения не подходит');
-//
-//        }
+        $data = $request->except('image');
+        $post = new Post($data);
+        $post->slug = Str::slug($post->title);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            if ($this->validateImage($image)){
+                $nameImage = $image->getClientOriginalName();
+                $image->move('storage/images_post/',$nameImage);
+                $post->preview = $nameImage;
+            }else{
+                return redirect()->back()->withInput()->withErrors('Формат изображения не подходит');
+            }
+        }else{
+            $post->preview = 'default.jpg';
+        }
+        $post->save();
+        return redirect()->route('admin.post.one',$post->id)->with(['success'=>'Проект успешно добавлен']);
     }
 
     public function update($id, ProjectUpdateRequest $request)
@@ -110,17 +104,13 @@ class PostController extends Controller
 
     }
 
-    private function validateImage(array $arr)
+    private function validateImage($arr)
     {
         $rules = ['jpg', 'png', 'jpeg', 'bmp'];
-        foreach ($arr as $image) {
-            if (in_array($image->extension(), $rules)) {
-                continue;
-            }else{
-                return false;
-            }
+        if (in_array($arr->extension(), $rules)) {
+            return true;
+        }else{
+            return false;
         }
-        return true;
     }
-
 }

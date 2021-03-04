@@ -18,7 +18,7 @@ class CreateImageTable extends Migration
             $table->integer('post_id')->unsigned()->nullable();
             $table->integer('project_id')->unsigned()->nullable();
             $table->string('name');
-            $table->string('carousel')->nullable();
+            $table->boolean('carousel')->nullable();
             $table->timestamps();
         });
     }

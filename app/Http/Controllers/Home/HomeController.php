@@ -17,4 +17,19 @@ class HomeController extends Controller
         $carousel = Project::with('image')->where('carousel', '=', 1)->get();
         return view('guest.home.index', compact('data','carousel'));
     }
+
+    public function services()
+    {
+        return view('guest.home.services');
+    }
+
+    public function contacts()
+    {
+        return view('guest.home.contacts');
+    }
+
+    public function planning()
+    {
+        return view('guest.home.architect');
+    }
 }

@@ -17,6 +17,7 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('slug');
+            $table->string('preview')->default('default.jpg');
             $table->longText('content');
             $table->text('except');
             $table->boolean('is_published')->default(true);

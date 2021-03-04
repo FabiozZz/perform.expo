@@ -72,11 +72,12 @@
                 <div class=" carousel-item ">
                     <div class="row">
                         @foreach($project->image as $image)
-                                @break($loop->index > 2)
-                                <div style='background-image: url("{{asset('storage/images_project/'.$image->name)}}");
+                                @if($image->carousel)
+                                <div style='background-image: url("{{asset('storage/images_project/'.$project->id.'/'.$image->name)}}");
                                     background-position: center;
                                     background-size: cover' class="col-6 wh100">
                                 </div>
+                            @endif
                         @endforeach
                     </div>
                 </div>

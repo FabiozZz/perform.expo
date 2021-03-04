@@ -24,12 +24,12 @@ class ProjectStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|unique:projects|min:5|max:255',
-            'except'=>'required|min:5|max:255',
-            'content'=>'required|min:5|max:5000',
-            'price'=>'required',
-            'square'=>'required',
-            'image' => 'required|max:2048'
+//            'title' => 'required|unique:projects|min:5|max:255',
+//            'except'=>'required|min:5|max:255',
+//            'content'=>'required|min:5|max:5000',
+//            'price'=>'required',
+//            'square'=>'required',
+//            'image' => 'required|max:2048'
         ];
     }
 }

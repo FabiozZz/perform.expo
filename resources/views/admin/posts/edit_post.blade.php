@@ -14,11 +14,11 @@
                 <div class="form-group">
                     <label class="col-form-label-sm" for="except">Введите краткое описание проекта
                     </label>
-                    <textarea placeholder="Вводить здесь ..." class="form-control" name="except" id="except" rows="3">{{$post->except}}</textarea>
+                    <textarea placeholder="Вводить здесь ..." class="form-control" name="except" id="except" rows="3">{{old('title',$post->except)}}</textarea>
                 </div>
                 <div class="form-group">
                     <label class="col-form-label-sm" for="content">Описание проекта</label>
-                    <textarea placeholder="Вводить здесь ..." class="form-control" name="content" id="summernote" rows="3">{{$post->content}}</textarea>
+                    <textarea placeholder="Вводить здесь ..." class="form-control" name="content" id="summernote" rows="3">{{old('content',$post->content)}}</textarea>
                 </div>
             </div>
         </div>
@@ -26,7 +26,7 @@
         <div class="col-xl-3 col-12 border p-3">
             <div class="form-group ">
                 <label class="w-100 col-form-label-sm" for="title">Введите заголовок проекта
-                    <input class="form-control" type="text" name="title" id="title" value="{{$post->title ?? ''}}" placeholder="Вводить здесь ...">
+                    <input class="form-control" type="text" name="title" id="title" value="{{old('title',$post->title)}}" placeholder="Вводить здесь ...">
                 </label>
             </div>
             <div class="form-group">

@@ -25,8 +25,12 @@ class CreateProjectsTable extends Migration
             $table->integer('category_id')->unsigned();
             $table->boolean('is_published')->default(false);
             $table->boolean('carousel')->default(false);
-            $table->foreign('category_id')->references('id')->on('categories');
+
             $table->timestamps();
+
+            $table->foreign('category_id')
+                ->references('id')
+                ->on('categories');
         });
     }
 
