@@ -32,4 +32,14 @@ class HomeController extends Controller
     {
         return view('guest.home.architect');
     }
+
+    public function stages()
+    {
+        return view('guest.home.process');
+    }
+
+    public function private()
+    {
+        return view('guest.home.private');
+    }
 }

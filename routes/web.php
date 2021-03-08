@@ -81,4 +81,7 @@ Route::group(['namespace' => 'Home','prefix'=>'/'], function () {
     Route::get('/services', 'HomeController@services')->name('services');
     Route::get('/contacts', 'HomeController@contacts')->name('contacts');
     Route::get('/planning', 'HomeController@planning')->name('planning');
+    Route::get('/planning', 'HomeController@planning')->name('planning');
+    Route::get('/stages', 'HomeController@stages')->name('stages');
+    Route::get('/private', 'HomeController@private')->name('private');
 });

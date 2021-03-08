@@ -1,8 +1,80 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
+#private-list {
+  font-size: 2.9em;
+  font-weight: bolder;
+  color: black;
+}
+#private-list .listCirilic li:nth-child(1)::before {
+  content: 'a) ';
+}
+#private-list .listCirilic li:nth-child(2)::before {
+  content: 'б) ';
+}
+#private-list .listCirilic li:nth-child(3)::before {
+  content: 'в) ';
+}
+#private-list .listCirilic li:nth-child(4)::before {
+  content: 'г) ';
+}
+#private-list h1 {
+  font-size: 1.7em;
+  padding-left: 6%;
+}
+#private-list p {
+  font-size: 0.5em;
+  padding: 2% 0 2% 3%;
+}
+#private-list ol ol,
+#private-list ul {
+  font-size: 0.5em;
+}
+#private-list ol ol ol,
+#private-list ul ol,
+#private-list ol ol ul,
+#private-list ul ul {
+  font-size: inherit;
+}
+#private-list ol {
+  padding: 2% 0 2% 3%;
+  list-style-position: outside;
+  list-style-type: none;
+  counter-reset: num;
+}
+#private-list ol li {
+  counter-increment: num;
+}
+#private-list ol li::before {
+  content: counters(num, '.') ' ';
+}
+#private-list ol li ul {
+  list-style-type: none;
+}
+#private-list ol li ul li::before {
+  content: '— ';
+}
+#stages-container {
+  font-family: "Roboto Light", sans-serif;
+  font-size: 1.5em;
+}
+#stages-container h1 {
+  font-size: 4em;
+  font-weight: 900;
+  color: black;
+}
+#stages-container img {
+  width: 100%;
+  height: auto;
+}
+#stages-container a {
+  font-size: 1em;
+  background-color: black;
+  padding: 2% 9%;
+  color: white;
+  border-radius: 0;
+}
 #arch-header {
   background-color: black;
   max-width: 1700px;
-  margin: auto;
   color: white;
   font-family: 'Roboto Light', sans-serif;
   font-size: 1.5em;
@@ -64,7 +136,6 @@
   font-weight: 900;
 }
 #arch-footer a {
-  margin: 2em 3% 0.6em;
   color: white;
   border-radius: 2em;
   font-size: 1em;
@@ -211,8 +282,11 @@
   padding-bottom: 30px;
   box-sizing: border-box;
   background-color: black;
-  width: 100vw;
   max-width: 1700px;
+}
+#footer-site a img {
+  height: 5vw;
+  width: auto;
 }
 
 @charset "UTF-8";

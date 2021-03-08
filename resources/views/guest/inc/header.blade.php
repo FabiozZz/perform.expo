@@ -42,7 +42,7 @@
                 <a class="nav-link {{request()->is('services*')? 'active' : ''}}" href="{{route('services')}}">Услуги</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Контакты</a>
+                <a class="nav-link" href="#footer-site">Контакты</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{request()->is('blog*')? 'active' : ''}}" href="{{route('blog')}}">Блог</a>
