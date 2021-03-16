@@ -11,11 +11,11 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $data = Project::with('category','image')
-            ->where('is_published','=',1)
-            ->orderByDesc('id')->limit(6)->get();
+//        $data = Project::with('category','image')
+//            ->where('is_published','=',1)
+//            ->orderByDesc('id')->paginate(6);
         $carousel = Project::with('image')->where('carousel', '=', 1)->get();
-        return view('guest.home.index', compact('data','carousel'));
+        return view('guest.home.index', compact('carousel'));
     }
 
     public function services()

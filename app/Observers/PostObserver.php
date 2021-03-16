@@ -3,7 +3,6 @@
 namespace App\Observers;
 
 use App\Models\Post;
-use App\Models\Project;
 use Psy\Util\Str;
 
 class PostObserver
@@ -16,7 +15,7 @@ class PostObserver
      */
     public function created(Post $post)
     {
-        $post->slug = \Illuminate\Support\Str::slug(request()->title);
+//        $post->slug = \Illuminate\Support\Str::slug(request()->title);
     }
 
     public function creating(Post $post)
@@ -36,7 +35,7 @@ class PostObserver
 
     public function updating(Post $post)
     {
-        $post->slug = \Illuminate\Support\Str::slug(request()->title);
+//        $post->slug = \Illuminate\Support\Str::slug(request()->title);
     }
 
 
