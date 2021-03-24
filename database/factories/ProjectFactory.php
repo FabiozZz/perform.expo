@@ -31,7 +31,7 @@ class ProjectFactory extends Factory
             'content' => $this->faker->realText(1000),
             'except'=>$this->faker->realText(200),
             'is_published'=> random_int(0,1) ? true : false,
-            'carousel'=> random_int(0,1) ? true : false,
+            'carousel'=> 0,
             'category_id' => $category,
             'square' => $square,
             'price' => $price,

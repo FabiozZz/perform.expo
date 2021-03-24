@@ -20,9 +20,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             CategorySeeder::class,
+            UserTableSeeder::class
         ]);
-        PostFactory::factoryForModel(Post::class)->count(30)->create();
-        ProjectFactory::factoryForModel(Project::class)->count(45)->create();
+        PostFactory::factoryForModel(Post::class)->count(12)->create();
+        ProjectFactory::factoryForModel(Project::class)->count(12)->create();
         // \App\Models\User::factory(10)->create();
     }
 }

@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Auth::routes();
-Route::get('/admin', 'HomeController@index');
+Route::get('/admin', 'HomeController@index')->name('admin');
 
 Route::resource('some', 'SomeController')->names('some');
 Route::group([

@@ -287,3 +287,44 @@
         }
     }
 }
+#carouselId *{
+    padding: 0 -15px;
+}
+#carouselId {
+    position: relative;
+    max-width: 1700px;
+    margin: auto;
+}
+.carousel-control-prev ,.carousel-control-next, .carousel-indicators{
+    z-index: 6;
+}
+#carouselId::after {
+    content: '';
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 1700px;
+    background-image: linear-gradient(to top, black 10%,transparent);
+    height: 100%;
+    z-index: 1;
+}
+.wh100{
+    width: 100%;
+    max-width: 1700px;
+    height: 100vh;
+    max-height: 700px;
+    margin: auto;
+
+}
+.div{
+    background-color: black;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    z-index: 1;
+    bottom: -50px;
+    left: calc(50% - 50px);
+    transform: rotate(45deg);
+}

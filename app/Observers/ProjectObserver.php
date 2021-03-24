@@ -19,7 +19,7 @@ class ProjectObserver
     }
     public function creating(Project $project)
     {
-//        $project->slug = Str::slug(request()->title);
+        $project->slug = Str::slug(request()->title);
     }
 
     /**
@@ -30,7 +30,7 @@ class ProjectObserver
      */
     public function updated(Project $project)
     {
-//        $project->slug = Str::slug(request()->title);
+        $project->slug = Str::slug(request()->title);
     }
 
     /**

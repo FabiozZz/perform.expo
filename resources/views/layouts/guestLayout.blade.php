@@ -17,7 +17,8 @@
             font-family: Arial, Roboto, 'Times New Roman',serif;
         }
     </style>
-    <script src="{{asset('js/jquery.js')}}"></script>
+    <script src="{{asset('js/app.js')}}"></script>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
@@ -28,6 +29,5 @@
     @yield('content')
 
     @include('guest.inc.footer')
-    <script src="{{asset('js/app.js')}}"></script>
 </body>
 </html>

@@ -1,6 +1,5 @@
 @extends('layouts.adminLayout')
 @section('content')
-
     <form class="row justify-content-center m-auto"
           method="POST"
           action="{{route('admin.project.store')}}"

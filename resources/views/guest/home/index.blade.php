@@ -1,8 +1,9 @@
 @extends('layouts.guestLayout')
 @section('title')Главная страница@endsection
 @section('content')
+    @empty($carousel->isEmpty())
     @include('guest.inc.carousel',$carousel)
-
+    @endempty
     <div class="wh100 row" style="background-color:#3196ff; position: relative;">
         <div class="col-6" style="">
             <a style="" class="" href="#">
@@ -57,6 +58,5 @@
             {{--                        </div>--}}
             {{--                    </div>--}}
         {{--            @endforeach--}}
-    </div>
     </div>
 @endsection

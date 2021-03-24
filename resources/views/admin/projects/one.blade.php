@@ -89,7 +89,7 @@
                 @endif
             @endforeach
         </div>
-        <button type="button">Удалить</button>
+        <button class="btn btn-danger btn-block" type="button">Удалить</button>
     </form>
 
     <script>

@@ -21,6 +21,13 @@ class ProjectController extends Controller
             ->orderByDesc('id')->paginate(6);
     }
 
+    public function getFilteredProjects($category)
+    {
+        return Project::with('category','image')
+            ->where('is_published','=',1)
+            ->where('category_id','=',$category)
+            ->orderByDesc('id')->paginate(6);
+    }
     /**
      * Store a newly created resource in storage.
      *
